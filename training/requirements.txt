@@ -1,0 +1,24 @@
+# PAD Encoder 학습 의존성 (모든 CUDA GPU / Windows·Linux)
+#
+# ⚠️ PyTorch는 CUDA 버전에 맞춰 별도 설치 권장:
+#    https://pytorch.org/get-started/locally/
+#    예 (CUDA 12.1):
+#    pip install torch --index-url https://download.pytorch.org/whl/cu121
+#
+# 그 다음 나머지:
+#    pip install -r requirements.txt
+
+transformers>=4.40.0
+peft>=0.10.0            # LoRA
+datasets>=2.18.0
+pyyaml>=6.0
+accelerate>=0.29.0
+numpy>=1.24.0
+sentencepiece>=0.1.99  # 다국어 MiniLM 토크나이저에 필요할 수 있음
+
+# 선택 (ONNX 내보내기 + 검증)
+# onnx>=1.15.0
+# onnxruntime>=1.17.0
+
+# 선택 (4-bit 양자화 — Windows는 별도 빌드 필요할 수 있음)
+# bitsandbytes>=0.43.0

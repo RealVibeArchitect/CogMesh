@@ -1,0 +1,49 @@
+# GPU-agnostic training config — auto-adapts to whatever GPU you have.
+#
+#   python scripts/train.py --config configs/auto.yaml
+#
+# On startup, train.py detects your GPU's VRAM and auto-fills batch_size,
+# max_length, grad_accum, and grad_checkpoint to fit it (see utils.auto_tune).
+# Anything you set explicitly below overrides the auto choice — so this file
+# works unchanged on a 6GB laptop GPU, a 24GB desktop card, or an 80GB A100.
+
+model:
+  # multilingual MiniLM (~120M): small, Korean-capable, trains on any modern GPU.
+  # Swap for a larger encoder if you have the VRAM headroom.
+  base_model_name: "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
+  use_lora: true          # adapters only → the key memory saver; set false for full fine-tune
+  lora_r: 8
+  lora_alpha: 16
+  lora_dropout: 0.05
+  dropout: 0.1
+  freeze_base: false
+
+data:
+  path: "data/seed_emotions.jsonl"
+  # max_length is auto-tuned by VRAM. Uncomment to pin it explicitly:
+  # max_length: 64
+
+train:
+  seed: 42
+  epochs: 40
+  auto_tune: true         # detect VRAM and size batch/memory options automatically
+  # The next four are auto-tuned when auto_tune is true. Uncomment any to override:
+  # batch_size: 8         # e.g. force a specific batch size
+  # grad_accum: 2         # effective batch = batch_size * grad_accum
+  # grad_checkpoint: false
+  lr: 2.0e-4
+  weight_decay: 0.01
+  warmup_ratio: 0.1       # 10% warmup, then cosine decay
+  grad_clip: 1.0          # gradient clipping (prevents divergence)
+  val_ratio: 0.15         # stratified split (every emotion appears in val)
+  amp: true               # mixed precision → ~half the VRAM
+  early_stop_patience: 8  # stop after 8 epochs with no val improvement
+  checkpoint_dir: "checkpoints"
+
+# 💡 Tips:
+#  - Force a profile: set auto_tune: false and fill batch_size / max_length yourself.
+#  - Still OOM after auto-tune? Lower batch_size and set grad_checkpoint: true.
+#  - Bigger GPU? Auto-tune raises batch_size for you; you can also raise epochs or
+#    swap in a larger base_model_name.
+#  - More data: just add lines to data/seed_emotions.jsonl.
+#  - After training: checkpoints/history.json holds the learning curve.
