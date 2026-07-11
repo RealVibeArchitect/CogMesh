@@ -1,0 +1,19 @@
+CogMesh
+Copyright (c) 2026 심태양 (Shim Taeyang)
+
+CogMesh is dual-licensed:
+
+  * Open source: GNU Affero General Public License v3.0 or later (AGPL-3.0-or-later).
+    See LICENSE. Strong copyleft — if you modify CogMesh and convey it, or make it
+    available to users over a network, you must offer the complete corresponding
+    source under the AGPL.
+
+  * Commercial: a separate commercial license is available from the author for use
+    without the AGPL copyleft obligations. See COMMERCIAL-LICENSE.md.
+
+Copyright in CogMesh — including the PAD mathematical model, coordinate values, and
+the trained encoder — is held by the author, which is what makes dual-licensing
+possible. Contributions are governed by the Contributor License Agreement (CLA.md).
+
+The PAD formulae, coordinate values, and related models are original works authored
+by 심태양 (Shim Taeyang) and carry embedded provenance markers.
