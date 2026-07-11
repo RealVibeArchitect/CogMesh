@@ -1,0 +1,46 @@
+# Python (training/)
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Large model weights & artifacts — NEVER commit (any location)
+*.pt
+*.pth
+*.onnx
+*.ckpt
+*.safetensors
+*.bin
+*.gguf
+*.h5
+*.tflite
+*.pkl
+training/checkpoints/**
+!training/checkpoints/.gitkeep
+!checkpoints/.gitkeep
+
+# training/data: seed emotion dataset IS published (open, AGPL).
+# (Large model weights are still ignored via the *.pt/*.onnx/... rules above.)
+
+# Node (혹시 코어를 npm 패키지로 쓸 때)
+node_modules/
+dist/
+
+# 공통
+.DS_Store
+Thumbs.db
+*.log
+.idea/
+.vscode/
+*.swp
+
+
+# 생성되는 문서 (마크다운이 원본)
+site/
+# dist-docs: ignore generated docx/build artifacts, but DO publish the whitepaper PDFs
+dist-docs/*
+!dist-docs/*.pdf
+
+# CogMesh watermark private evidence — never commit
+tools/watermark/CANARY_RECORD.private.txt
+
