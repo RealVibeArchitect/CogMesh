@@ -1,3 +1,8 @@
+<p align="center">
+  <img src="banner.pag.png" alt="CogMesh Banner" width="100%">
+</p>
+
+
 **English** | [한국어](./README.ko.md)
 
 <div align="center">
@@ -81,6 +86,13 @@ CogMesh exists to empower researchers, developers, and creators — not to lock 
 
 Commercial success should sustain innovation, not restrict it.
 
+"Imagination is more important than knowledge."
+> — Albert Einstein
+
+CogMesh extends this idea:
+
+True intelligence emerges when imagination, emotion, events, place, and time interact through cognition.
+
 > **Commercialization exists to sustain the project, not to restrict knowledge.**
 
 ---
@@ -97,6 +109,14 @@ Current LLMs are powerful — but they mostly *answer*. CogMesh focuses on somet
 CogMesh is not a replacement for LLMs. It is a **cognition layer** that can sit around them, regulating *how* reasoning happens.
 
 ---
+
+
+<p align="center">
+
+<img src="architecture.png" alt="architecture.png" width="100%"/>
+
+</p>
+
 
 ## 🧭 Architecture (Core Idea)
 
