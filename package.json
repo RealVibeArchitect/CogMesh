@@ -1,0 +1,115 @@
+{
+  "name": "cogmesh",
+  "version": "0.5.1",
+  "description": "An open cognitive architecture for AI — PAD metacognition, modular reasoning, self-regulation, and a runnable constitutional governance core for safe self-modification.",
+  "keywords": [
+    "ai",
+    "cognitive-architecture",
+    "agi",
+    "metacognition",
+    "pad",
+    "emotion",
+    "reasoning",
+    "ai-safety",
+    "ai-governance",
+    "self-modification",
+    "agent",
+    "llm",
+    "world-model"
+  ],
+  "license": "AGPL-3.0-or-later",
+  "author": "Shim Taeyang (심태양)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/<your-id>/cogmesh.git"
+  },
+  "homepage": "https://github.com/<your-id>/cogmesh#readme",
+  "bugs": {
+    "url": "https://github.com/<your-id>/cogmesh/issues"
+  },
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "main": "./index.js",
+  "exports": {
+    ".": "./index.js",
+    "./agent": "./core/agent/index.js",
+    "./cognition": "./core/cognition/index.js",
+    "./constitution": "./core/constitution/index.js",
+    "./memory": "./core/memory/index.js",
+    "./mesh": "./core/mesh/index.js",
+    "./multimodal": "./core/multimodal/index.js",
+    "./orchestrator": "./core/orchestrator/index.js",
+    "./pad": "./core/pad/index.js",
+    "./reflection": "./core/reflection/index.js",
+    "./retrieval": "./core/retrieval/index.js",
+    "./world": "./core/world/index.js",
+    "./package.json": "./package.json"
+  },
+  "sideEffects": false,
+  "files": [
+    "index.js",
+    "core/",
+    "engines/",
+    "README.md",
+    "README.ko.md",
+    "LICENSE",
+    "NOTICE",
+    "COMMERCIAL-LICENSE.md",
+    "LICENSING.md"
+  ],
+  "dependencies": {
+    "markdown-it": "^14.3.0",
+    "markdown-it-anchor": "^9.2.0"
+  },
+  "optionalDependencies": {
+    "onnxruntime-node": "^1.17.0",
+    "@xenova/transformers": "^2.17.0"
+  },
+  "scripts": {
+    "bench": "node scripts/bench.mjs",
+    "bench:governance": "node scripts/bench-governance.mjs",
+    "check:pad-sync": "node scripts/check-pad-sync.mjs",
+    "docs:docx": "npm run docs:docx:en && npm run docs:docx:ko",
+    "docs:docx:en": "pandoc docs/WHITEPAPER.en.md -o dist-docs/CogMesh_Whitepaper_en.docx --toc --number-sections -f markdown+tex_math_dollars --resource-path=docs",
+    "docs:docx:ko": "pandoc docs/WHITEPAPER.ko.md -o dist-docs/CogMesh_Whitepaper_ko.docx --toc --number-sections -f markdown+tex_math_dollars --resource-path=docs",
+    "docs:site": "node scripts/build-site.mjs",
+    "lint": "eslint core engines examples scripts test",
+    "lint:fix": "eslint core engines examples scripts test --fix",
+    "mutation": "node scripts/governance-mutation.mjs",
+    "sim:generational": "node scripts/generational-sim.mjs",
+    "test": "node --test",
+    "test:agent": "node --test test/agent.test.mjs",
+    "test:calibration": "node --test test/calibrationLedger.test.mjs",
+    "test:cogmesh-agent": "node --test test/cogmeshAgent.test.mjs",
+    "test:cognition": "node --test test/cognition.test.mjs",
+    "test:compression": "node --test test/compression.test.mjs",
+    "test:confidence": "node --test test/confidence.test.mjs",
+    "test:coverage": "node --test --experimental-test-coverage",
+    "test:deliberative": "node --test test/deliberative.test.mjs",
+    "test:generational": "node --test test/generationalOversight.test.mjs",
+    "test:goals": "node --test test/goalManager.test.mjs",
+    "test:integration": "node --test test/integration.test.mjs",
+    "test:isolation": "node --test test/isolatedAdjudicator.test.mjs",
+    "test:meta": "node --test test/metaReasoner.test.mjs",
+    "test:multimodal": "node --test test/multimodal.test.mjs",
+    "test:optimization": "node --test test/optimization.test.mjs",
+    "test:planner": "node --test test/planner.test.mjs",
+    "test:retrieval": "node --test test/retrieval.test.mjs",
+    "test:scalability": "node --test test/scalability.test.mjs",
+    "test:simulation": "node --test test/simulation.test.mjs",
+    "test:simulator": "node --test test/simulator.test.mjs",
+    "test:stability": "node --test test/stability.test.mjs",
+    "test:stress": "node --test test/stress.test.mjs",
+    "test:tiering": "node --test test/semanticTiering.test.mjs",
+    "test:calibration-gate": "node --test --test-force-exit test/calibrationGate.test.mjs",
+    "test:redteam": "node --test --test-force-exit test/redteamSelfMod.test.mjs",
+    "redteam": "node scripts/redteam-proposer.mjs",
+    "test:governance-integration": "node --test --test-force-exit test/governanceIntegration.test.mjs",
+    "test:mood-governance": "node --test --test-force-exit test/moodGovernance.test.mjs"
+  },
+  "devDependencies": {
+    "eslint": "^9.39.4"
+  }
+}
