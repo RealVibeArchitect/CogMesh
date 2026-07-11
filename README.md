@@ -643,7 +643,7 @@ CogMesh is **dual-licensed** — choose whichever fits you:
 
 The PAD formulae and coordinate values are the original work of 심태양 (Shim Taeyang), documented in the whitepaper and protected by embedded provenance markers. Every source file declares `SPDX-License-Identifier: AGPL-3.0-or-later`. See **[LICENSING.md](./LICENSING.md)** for details.
 
-**Commercial licensing** (proprietary / closed-source / SaaS without copyleft): see [COMMERCIAL-LICENSE.md](./COMMERCIAL-LICENSE.md). Contact: *[ your licensing email / URL here ]*.
+**Commercial licensing** (proprietary / closed-source / SaaS without copyleft): see [COMMERCIAL-LICENSE.md](./COMMERCIAL-LICENSE.md). Contact: *[ taeyangsim06@gmail.com]*.
 
 ---
 
